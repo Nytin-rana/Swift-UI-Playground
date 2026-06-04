@@ -1,18 +1,18 @@
 //
-//  SwiftUIView.swift
-//  Test
+//  Basic2.swift
+//  SwiftUI Playground
 //
-//  Created by Nytin Rana on 03/06/26.
+//  Created by Nytin Rana on 04/06/26.
 //
 
 import SwiftUI
 
-struct FirstView: View {
+struct Basic2: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    FirstView()
+    Basic2()
 }

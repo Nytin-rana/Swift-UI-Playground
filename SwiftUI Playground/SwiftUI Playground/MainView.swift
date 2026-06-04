@@ -1,25 +1,25 @@
-//
-//  ContentView.swift
-//  SwiftUI Playground
-//
-//  Created by Nytin Rana on 04/06/26.
-//
-
 import SwiftUI
 
-
-struct ContentView: View {
-    
-    
+struct MainView: View {
     var body: some View {
-        Text("Hello, World!")
-            .background(Color.red)
-            .frame(width: .infinity, height: .infinity)
-            .ignoresSafeArea(.all)
+
+        TabView {
+            Basic1().tabItem { Label("Basic", systemImage: "1.circle") }
+            Basic2().tabItem { Label("Basic", systemImage: "2.circle") }
+            Alerts().tabItem { Label("Alerts", systemImage: "exclamationmark.triangle.fill") }
+            Colors().tabItem { Label("Colors", systemImage: "camera.filters") }
+            
+            //More tabs
+            AdditionalView().tabItem { Label("More", systemImage: "ellipsis") }
+        }
     }
-    
 }
-#Preview {
-    ContentView()
-        
+
+
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
 }
+

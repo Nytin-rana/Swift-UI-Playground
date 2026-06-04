@@ -35,16 +35,6 @@
 			path = "SwiftUI Playground";
 			sourceTree = "<group>";
 		};
-		DC43CBAC2FD160DF006C057B /* SwiftUI PlaygroundTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "SwiftUI PlaygroundTests";
-			sourceTree = "<group>";
-		};
-		DC43CBB62FD160DF006C057B /* SwiftUI PlaygroundUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "SwiftUI PlaygroundUITests";
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				DC43CB9C2FD160DE006C057B /* SwiftUI Playground */,
-				DC43CBAC2FD160DF006C057B /* SwiftUI PlaygroundTests */,
-				DC43CBB62FD160DF006C057B /* SwiftUI PlaygroundUITests */,
 				DC43CB9B2FD160DE006C057B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +118,6 @@
 			dependencies = (
 				DC43CBAB2FD160DF006C057B /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				DC43CBAC2FD160DF006C057B /* SwiftUI PlaygroundTests */,
-			);
 			name = "SwiftUI PlaygroundTests";
 			packageProductDependencies = (
 			);
@@ -152,9 +137,6 @@
 			);
 			dependencies = (
 				DC43CBB52FD160DF006C057B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				DC43CBB62FD160DF006C057B /* SwiftUI PlaygroundUITests */,
 			);
 			name = "SwiftUI PlaygroundUITests";
 			packageProductDependencies = (

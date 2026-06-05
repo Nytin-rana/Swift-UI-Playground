@@ -9,7 +9,25 @@ import SwiftUI
 
 struct Basic2: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 20){
+                Text("Text Editor :").fontWeight(.bold).foregroundColor(.gray)
+                TextEditor(text: .constant("Hey there, this is a text editor! "))
+                    .frame(height: 100)
+                    .padding(.leading,20).border(Color.gray, width: 1)
+                    .frame(width: 300)
+                Text("Image :").fontWeight(.bold).foregroundColor(.gray)
+                Image( "1").resizable().frame(width: 200, height: 200, alignment: .center)
+                    .clipShape(.circle)
+                    .padding(.leading,40)
+                    
+                Text("Shapes :").fontWeight(.bold).foregroundColor(.gray)
+                
+                
+                Spacer()
+            }.padding(.leading,20)
+                .navigationTitle("Basic 2")
+        }
     }
 }
 

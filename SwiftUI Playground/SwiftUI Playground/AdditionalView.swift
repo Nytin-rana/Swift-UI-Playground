@@ -2,8 +2,8 @@ import SwiftUI
 
 // 1. Define an enum for your 10 different screens
 enum AppScreen: String, CaseIterable, Identifiable {
-    case home = "Home"
-    case profile = "Profile"
+    case ignoreSafeArea = "Ignore Safe Area"
+    case group = "Group"
     case analytics = "Analytics"
     case messages = "Messages"
     case documents = "Documents"
@@ -18,8 +18,8 @@ enum AppScreen: String, CaseIterable, Identifiable {
     // SF Symbols for each row
     var icon: String {
         switch self {
-        case .home: return "house"
-        case .profile: return "person.circle"
+        case .ignoreSafeArea: return "arrow.up.left.and.down.right.and.arrow.up.right.and.down.left"
+        case .group: return "rectangle.stack"
         case .analytics: return "chart.bar"
         case .messages: return "bubble.left"
         case .documents: return "doc.text"
@@ -67,10 +67,10 @@ struct DestinationView: View {
         NavigationStack {
             Group {
                 switch screen {
-                case .home:
-                    Text("Welcome Home Screen")
-                case .profile:
-                    Text("User Profile Settings")
+                case .ignoreSafeArea:
+                    IgnoreSafeArea()
+                case .group:
+                    GroupView()
                 case .analytics:
                     Text("Data & Charts Overview")
                 case .messages:

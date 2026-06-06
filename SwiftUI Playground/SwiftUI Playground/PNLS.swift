@@ -19,25 +19,37 @@ struct BottomSheetView: View {
 }
 struct Nav1: View {
     var body: some View {
-        List {
-            Section(header: Text("Section 1")) {
-                HStack {
-                    Text("Item 1")
-                    Image(systemName: "heart.fill")
+        NavigationStack {
+            
+            
+            List {
+                Section(header: Text("Section 1")) {
+                    HStack {
+                        Text("Item 1")
+                        Image(systemName: "heart.fill")
+                    }
+                    Text("Item 2")
+                    Text("Item 3")
                 }
-                Text("Item 2")
-                Text("Item 3")
-            }
-            Section(header: Text("Section 2")) {
-                Text("Item 4")
-                Text("Item 5")
-                Text("Item 6")
-            }
-            Section(header: Text("Section 3")) {
-                Text("Item 7")
-                Text("Item 8")
-                Text("Item 9")
-            }
+                Section(header: Text("Section 2")) {
+                    Text("Item 4")
+                    Text("Item 5")
+                    Text("Item 6")
+                }
+                Section(header: Text("Section 3")) {
+                    Text("Item 7")
+                    Text("Item 8")
+                    Text("Item 9")
+                }
+            }.navigationTitle(Text("List"))
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Image(systemName: "plus")
+                            
+                        
+                    }
+                }
         }
     }
 }
@@ -102,5 +114,5 @@ struct PNLS: View {
 }
 
 #Preview {
-    PNLS()
+    Nav1()
 }

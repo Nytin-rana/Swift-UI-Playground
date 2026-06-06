@@ -8,9 +8,9 @@ enum AppScreen: String, CaseIterable, Identifiable {
     case frames = "Frames"
     case container = "Container"
     case lazyVStack = "Lazy VStack"
-    case downloads = "Downloads"
-    case gallery = "Gallery"
-    case security = "Security"
+    case initializerView = "Initializer View"
+    case stateAndConditionalView = "State And Conditional View"
+    case PNLS = "PNLS"
     case settings = "Settings"
     
     var id: String { self.rawValue }
@@ -24,9 +24,9 @@ enum AppScreen: String, CaseIterable, Identifiable {
         case .frames: return "ipad.and.arrow.forward"
         case .container: return "text.redaction"
         case .lazyVStack: return "lasso.badge.sparkles"
-        case .downloads: return "arrow.down.circle"
-        case .gallery: return "photo.on.rectangle"
-        case .security: return "shield"
+        case .initializerView: return "arrow.trianglehead.swap"
+        case .stateAndConditionalView: return "photo.on.rectangle"
+        case .PNLS: return "xmark.shield"
         case .settings: return "gearshape"
         }
     }
@@ -78,13 +78,13 @@ struct DestinationView: View {
                 case .container:
                     Container()
                 case .lazyVStack:
-                    LazyVStack()
-                case .downloads:
-                    Text("Download Queue")
-                case .gallery:
-                    Text("Media Gallery")
-                case .security:
-                    Text("Privacy & Security Controls")
+                    LazyVStackView()
+                case .initializerView:
+                    InitializerView()
+                case .stateAndConditionalView:
+                    StateAndConditionalView()
+                case .PNLS:
+                    PNLS()
                 case .settings:
                     Text("App Settings Configurations")
                 }

@@ -4,10 +4,10 @@ import SwiftUI
 enum AppScreen: String, CaseIterable, Identifiable {
     case ignoreSafeArea = "Ignore Safe Area"
     case group = "Group"
-    case analytics = "Analytics"
-    case messages = "Messages"
-    case documents = "Documents"
-    case favorites = "Favorites"
+    case systemIcons = "System Icons"
+    case frames = "Frames"
+    case container = "Container"
+    case lazyVStack = "Lazy VStack"
     case downloads = "Downloads"
     case gallery = "Gallery"
     case security = "Security"
@@ -20,10 +20,10 @@ enum AppScreen: String, CaseIterable, Identifiable {
         switch self {
         case .ignoreSafeArea: return "arrow.up.left.and.down.right.and.arrow.up.right.and.down.left"
         case .group: return "rectangle.stack"
-        case .analytics: return "chart.bar"
-        case .messages: return "bubble.left"
-        case .documents: return "doc.text"
-        case .favorites: return "star"
+        case .systemIcons: return "wand.and.rays.inverse"
+        case .frames: return "ipad.and.arrow.forward"
+        case .container: return "text.redaction"
+        case .lazyVStack: return "lasso.badge.sparkles"
         case .downloads: return "arrow.down.circle"
         case .gallery: return "photo.on.rectangle"
         case .security: return "shield"
@@ -71,14 +71,14 @@ struct DestinationView: View {
                     IgnoreSafeArea()
                 case .group:
                     GroupView()
-                case .analytics:
-                    Text("Data & Charts Overview")
-                case .messages:
-                    Text("Your Inbox")
-                case .documents:
-                    Text("Files and PDFs")
-                case .favorites:
-                    Text("Your Bookmarked Items")
+                case .systemIcons:
+                    SystemIcons()
+                case .frames:
+                   Frames()
+                case .container:
+                    Container()
+                case .lazyVStack:
+                    LazyVStack()
                 case .downloads:
                     Text("Download Queue")
                 case .gallery:

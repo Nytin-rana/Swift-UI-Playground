@@ -9,9 +9,10 @@ struct MainView: View {
             Alerts().tabItem { Label("Alerts", systemImage: "exclamationmark.arrow.triangle.2.circlepath") }
             Colors().tabItem { Label("Colors", systemImage: "camera.filters") }
             
-            //More tabs
+           
             AdditionalView().tabItem { Label("More", systemImage: "ellipsis") }
         }
+        
     }
 }
 

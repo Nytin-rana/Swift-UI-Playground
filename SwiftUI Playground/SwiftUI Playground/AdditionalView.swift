@@ -1,6 +1,11 @@
 import SwiftUI
+internal import Combine
 
-// 1. Define an enum for your 10 different screens
+class UserData: ObservableObject {
+    @Published var name: String = "SUPER HEROS"
+}
+
+
 enum AppScreen: String, CaseIterable, Identifiable {
     case ignoreSafeArea = "Ignore Safe Area"
     case group = "Group"
@@ -11,11 +16,12 @@ enum AppScreen: String, CaseIterable, Identifiable {
     case initializerView = "Initializer View"
     case stateAndConditionalView = "State And Conditional View"
     case PNLS = "PNLS"
-    case settings = "Settings"
+    case CTPDSS = "CTPDSS"
+    case objects = "Objects"
     
     var id: String { self.rawValue }
     
-    // SF Symbols for each row
+    
     var icon: String {
         switch self {
         case .ignoreSafeArea: return "arrow.up.left.and.down.right.and.arrow.up.right.and.down.left"
@@ -27,7 +33,8 @@ enum AppScreen: String, CaseIterable, Identifiable {
         case .initializerView: return "arrow.trianglehead.swap"
         case .stateAndConditionalView: return "photo.on.rectangle"
         case .PNLS: return "xmark.shield"
-        case .settings: return "gearshape"
+        case .CTPDSS: return "gearshape"
+        case .objects: return "square.grid.3x1.folder.badge.plus"
         }
     }
 }
@@ -35,6 +42,7 @@ enum AppScreen: String, CaseIterable, Identifiable {
 struct AdditionalView: View {
     
     @State private var selectedScreen: AppScreen? = nil
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
         NavigationSplitView {
@@ -48,9 +56,10 @@ struct AdditionalView: View {
             
         } detail: {
             // ---- DETAIL VIEW (Column 2) ----
-            // When a user taps a sidebar item, this area updates dynamically
+            
             if let screen = selectedScreen {
-                DestinationView(screen: screen)
+                DestinationView(userData: userData, screen: screen)
+                    
             } else {
                 Text("Select an item from the sidebar")
                     .foregroundColor(.secondary)
@@ -59,8 +68,9 @@ struct AdditionalView: View {
     }
 }
 
-// 2. A dynamic detail view switcher
+
 struct DestinationView: View {
+    @ObservedObject var userData: UserData
     let screen: AppScreen
     
     var body: some View {
@@ -74,7 +84,7 @@ struct DestinationView: View {
                 case .systemIcons:
                     SystemIcons()
                 case .frames:
-                   Frames()
+                    Frames()
                 case .container:
                     Container()
                 case .lazyVStack:
@@ -85,18 +95,23 @@ struct DestinationView: View {
                     StateAndConditionalView()
                 case .PNLS:
                     PNLS()
-                case .settings:
-                    Text("App Settings Configurations")
+                case .CTPDSS:
+                    CTPDSS()
+                case .objects:
+                    Objects()
+                        
+                    
+                
                 }
             }
-            .font(.largeTitle)
+            
             .navigationTitle(screen.rawValue)
         }
     }
 }
 
- 
+
 #Preview {
     AdditionalView()
+        .environmentObject(UserData())
 }
-

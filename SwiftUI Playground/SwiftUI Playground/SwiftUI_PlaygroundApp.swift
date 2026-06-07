@@ -15,7 +15,9 @@ struct SwiftUI_PlaygroundApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(UserData())
         }
         
     }
 }
+
